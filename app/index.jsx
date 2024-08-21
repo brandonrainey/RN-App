@@ -10,7 +10,9 @@ import React from 'react'
 export default function App() {
   const { isLoading, isLoggedIn } = useGlobalContext()
 
-  if (!isLoading && !isLoggedIn) {
+  console.log(isLoggedIn, 'index')
+
+  if (!isLoading && isLoggedIn) {
     return <Redirect href="/home" />
   }
   return (

@@ -17,9 +17,15 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "package": "com.br.myrnapp"
+      "package": "com.br.myrnapp",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
+      }
     },
     "android": {
+      "permissions": ["INTERNET"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -33,3 +39,4 @@
     ]
   }
 }
+
