@@ -9,11 +9,13 @@ import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
 import { getAllPosts, getLatestPosts } from '../../lib/appwrite'
 import useAppwrite from '../../lib/useAppwrite'
-
+import { useGlobalContext } from '../../context/GlobalProvider'
 
 
 
 const Home = () => {
+  const { user, setUser, setIsLoggedIn, isLoggedIn } = useGlobalContext()
+
   const { data: posts, refetch } = useAppwrite(getAllPosts)
 
   const { data: latestPosts } = useAppwrite(getLatestPosts)
@@ -38,8 +40,8 @@ const Home = () => {
           <View  className='my-6 px-4 space-y-6'>
             <View className='flex-row justify-between items-start mb-6'>
               <View>
-                <Text className='font-pmedium text-sm text-gray-100'>Welcome Back</Text>
-                <Text className='text-2xl font-psemibold text-white'>Mario</Text>
+                <Text className='font-pmedium text-sm text-gray-100'>Welcome Back,</Text>
+                <Text className='text-2xl font-psemibold text-white'>{user?.username}</Text>
               </View>
 
               <View className='mt-1.5'>
